@@ -1,0 +1,151 @@
+{"name": "Homo sapiens", "periode": "Préhistoire"} - Notation : 5
+{"name": "Homo erectus", "periode": "Préhistoire"} - Notation : 4
+{"name": "Néandertaliens", "periode": "Préhistoire"} - Notation : 4
+{"name": "Cro-Magnon", "periode": "Préhistoire"} - Notation : 3
+{"name": "Dame de Brassempouy", "periode": "Préhistoire"} - Notation : 2
+{"name": "Toumaï", "periode": "Préhistoire"} - Notation : 1
+{"name": "Homo habilis", "periode": "Préhistoire"} - Notation : 1
+{"name": "Ötzi", "periode": "Préhistoire"} - Notation : 1
+{"name": "Alexandre le Grand", "periode": "Antiquité"} - Notation : 5
+{"name": "Jules César", "periode": "Antiquité"} - Notation : 5
+{"name": "Cléopâtre VII", "periode": "Antiquité"} - Notation : 4
+{"name": "Socrate", "periode": "Antiquité"} - Notation : 4
+{"name": "Aristote", "periode": "Antiquité"} - Notation : 4
+{"name": "Hannibal Barca", "periode": "Antiquité"} - Notation : 3
+{"name": "Cicéron", "periode": "Antiquité"} - Notation : 3
+{"name": "Hérodote", "periode": "Antiquité"} - Notation : 3
+{"name": "Confucius", "periode": "Antiquité"} - Notation : 3
+{"name": "Ashoka", "periode": "Antiquité"} - Notation : 2
+{"name": "Périclès", "periode": "Antiquité"} - Notation : 4
+{"name": "Thalès de Milet", "periode": "Antiquité"} - Notation : 2
+{"name": "Cyrus le Grand", "periode": "Antiquité"} - Notation : 3
+{"name": "Homère", "periode": "Antiquité"} - Notation : 4
+{"name": "Ramsès II", "periode": "Antiquité"} - Notation : 3
+{"name": "Cléisthène", "periode": "Antiquité"} - Notation : 2
+{"name": "Auguste", "periode": "Antiquité"} - Notation : 3
+{"name": "Marc Antoine", "periode": "Antiquité"} - Notation : 3
+{"name": "Diogène", "periode": "Antiquité"} - Notation : 2
+{"name": "Archimède", "periode": "Antiquité"} - Notation : 4
+{"name": "Pythagore", "periode": "Antiquité"} - Notation : 3
+{"name": "Euclide", "periode": "Antiquité"} - Notation : 3
+{"name": "Xerxès I", "periode": "Antiquité"} - Notation : 2
+{"name": "Darius I", "periode": "Antiquité"} - Notation : 2
+
+{"name": "Gengis Khan", "periode": "Moyen Âge"} - Notation : 5
+{"name": "Marco Polo", "periode": "Moyen Âge"} - Notation : 4
+{"name": "Jeanne d'Arc", "periode": "Moyen Âge"} - Notation : 4
+{"name": "Charlemagne", "periode": "Moyen Âge"} - Notation : 3
+{"name": "Christophe Colomb", "periode": "Moyen Âge"} - Notation : 3
+{"name": "Guillaume le Conquérant", "periode": "Moyen Âge"} - Notation : 3
+{"name": "Richard Cœur de Lion", "periode": "Moyen Âge"} - Notation : 3
+{"name": "Eleanor of Aquitaine", "periode": "Moyen Âge"} - Notation : 2
+{"name": "Saladin", "periode": "Moyen Âge"} - Notation : 2
+{"name": "Vlad III l'Empaleur", "periode": "Moyen Âge"} - Notation : 2
+{"name": "Frédéric Barberousse", "periode": "Moyen Âge"} - Notation : 2
+{"name": "Hildegarde de Bingen", "periode": "Moyen Âge"} - Notation : 2
+{"name": "Thomas d'Aquin", "periode": "Moyen Âge"} - Notation : 2
+{"name": "Jean II le Bon", "periode": "Moyen Âge"} - Notation : 2
+{"name": "Isabelle de Castille", "periode": "Moyen Âge"} - Notation : 2
+{"name": "Roger Bacon", "periode": "Moyen Âge"} - Notation : 1
+{"name": "Geoffroy Chaucer", "periode": "Moyen Âge"} - Notation : 1
+{"name": "Dante Alighieri", "periode": "Moyen Âge"} - Notation : 1
+{"name": "Jean Wyclif", "periode": "Moyen Âge"} - Notation : 1
+{"name": "Jean Hus", "periode": "Moyen Âge"} - Notation : 1
+{"name": "Jean sans Terre", "periode": "Moyen Âge"} - Notation : 1
+{"name": "Ali ibn Abi Talib", "periode": "Moyen Âge"} - Notation : 1
+{"name": "Philippe le Bel", "periode": "Moyen Âge"} - Notation : 1
+{"name": "Godefroy de Bouillon", "periode": "Moyen Âge"} - Notation : 1
+{"name": "Napoléon Bonaparte", "periode": "Époque Période moderne"} - Notation : 5
+{"name": "Queen Victoria", "periode": "Époque Période moderne"} - Notation : 4
+{"name": "Abraham Lincoln", "periode": "Époque Période moderne"} - Notation : 4
+{"name": "Charles Darwin", "periode": "Époque Période moderne"} - Notation : 3
+{"name": "Otto von Bismarck", "periode": "Époque Période moderne"} - Notation : 3
+{"name": "Thomas Edison", "periode": "Époque Période moderne"} - Notation : 3
+{"name": "Florence Nightingale", "periode": "Époque Période moderne"} - Notation : 3
+{"name": "Karl Marx", "periode": "Époque Période moderne"} - Notation : 3
+{"name": "Frédéric Chopin", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Leo Tolstoï", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Giuseppe Garibaldi", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Queen Liliʻuokalani", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Mark Twain", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Clara Barton", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Frederick Douglass", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Vincent van Gogh", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Susan B. Anthony", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Alexander Graham Bell", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Czar Nicholas II", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Victor Hugo", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Gustave Eiffel", "periode": "Époque Période moderne"} - Notation : 2
+{"name": "Winston Churchill", "periode": "Période moderne"} - Notation : 4
+{"name": "Martin Luther King Jr.", "periode": "Période moderne"} - Notation : 4
+{"name": "Nelson Mandela", "periode": "Période moderne"} - Notation : 4
+{"name": "Albert Einstein", "periode": "Période moderne"} - Notation : 5
+{"name": "Franklin D. Roosevelt", "periode": "Période moderne"} - Notation : 4
+{"name": "Mahatma Gandhi", "periode": "Période moderne"} - Notation : 4
+{"name": "John F. Kennedy", "periode": "Période moderne"} - Notation : 4
+{"name": "Marilyn Monroe", "periode": "Période moderne"} - Notation : 3
+{"name": "Che Guevara", "periode": "Période moderne"} - Notation : 3
+{"name": "Queen Elizabeth II", "periode": "Période moderne"} - Notation : 4
+{"name": "Steve Jobs", "periode": "Période moderne"} - Notation : 4
+{"name": "Margaret Thatcher", "periode": "Période moderne"} - Notation : 4
+{"name": "Bill Gates", "periode": "Période moderne"} - Notation : 4
+{"name": "Fidel Castro", "periode": "Période moderne"} - Notation : 3
+{"name": "Princess Diana", "periode": "Période moderne"} - Notation : 3
+{"name": "Vladimir Putin", "periode": "Période moderne"} - Notation : 3
+{"name": "Angela Merkel", "periode": "Période moderne"} - Notation : 3
+{"name": "Barack Obama", "periode": "Période moderne"} - Notation : 4
+{"name": "Pope John Paul II", "periode": "Période moderne"} - Notation : 4
+{"name": "Malala Yousafzai", "periode": "Période moderne"} - Notation : 3
+{"name": "Ronald Reagan", "periode": "Période moderne"} - Notation : 4
+{"name": "Elon Musk", "periode": "Période moderne"} - Notation : 4
+{"name": "Jeff Bezos", "periode": "Période moderne"} - Notation : 3
+{"name": "Malcom X", "periode": "Période moderne"} - Notation : 3
+{"name": "Neil Armstrong", "periode": "Période moderne"} - Notation : 4
+{"name": "Yuri Gagarin", "periode": "Période moderne"} - Notation : 3
+{"name": "Jacques Cousteau", "periode": "Période moderne"} - Notation : 3
+
+
+
+
+
+
+
+
+
+
+
+Future initSharedPreferences() async {
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  String otziId = uuid.v4();
+  String toumaiId = uuid.v4();
+  
+  await preferences.setString('id', otziId, toumaiId);
+  await preferences.setString('name', 'Ötzi', otziId);
+  await preferences.setString('period', "Préhistoire");
+  await preferences.setString('lifeDate', "-3300");
+  await preferences.setString('shortDescription', "");
+  await preferences.setString('description',
+      "Ötzi est une momie préhistorique découverte dans les Alpes italiennes en 1991.");
+  await preferences.setString('image',
+      "Ötzi a été découvert par des randonneurs dans les Alpes de l'Ötztal, d'où il tire son nom. Sa préservation exceptionnelle est due aux conditions climatiques et à la couche de glace dans laquelle il était enfoui. Ötzi était équipé d'outils, d'armes, et de vêtements, offrant un aperçu fascinant de la vie quotidienne à cette époque. Des analyses ont révélé des tatouages, des parasites intestinaux, et d'autres détails sur sa santé.");
+  await preferences.setString('schoolProgram', "");
+  await preferences.setInt('popularity', 1);
+  await preferences.setInt('favorite', 0);
+  await preferences.setString('creationDate', now.toIso8601String());
+  await preferences.setString('lastModifiedDate', now.toIso8601String());
+
+  await preferences.setString('id', toumaiId);
+  await preferences.setString('name', 'Toumaï');
+  await preferences.setString('period', "Préhistoire");
+  await preferences.setString('lifeDate', "-7");
+  await preferences.setString('shortDescription',
+      "Toumaï est le nom donné à un fossile de primate découvert au Tchad en 2001.");
+  await preferences.setString('description',
+      "Le fossile de Toumaï est considéré comme l'un des plus anciens ancêtres connus de l'homme. Il a été daté d'environ 7 millions d'années et présente des caractéristiques similaires à celles des premiers hominidés. Sa découverte a permis de mieux comprendre l'évolution de l'espèce humaine.");
+  await preferences.setString('image', "");
+  await preferences.setString('schoolProgram', "");
+  await preferences.setInt('popularity', 1);
+  await preferences.setInt('favorite', 0);
+  await preferences.setString('creationDate', now.toIso8601String());
+  await preferences.setString('lastModifiedDate', now.toIso8601String());
+}
