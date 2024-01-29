@@ -1,8 +1,7 @@
 import 'dart:convert';
+import 'package:historyai/utils/functions.dart';
 import 'package:historyai/screens/discussion_screen.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/services.dart';
 
@@ -16,9 +15,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final TextEditingController _controller = TextEditingController();
-  List<String> chatHistory = [];
-  bool _loading = false;
   List<Map<String, dynamic>> characters = [];
   int characterCount = 0;
   TextEditingController _textFieldController = TextEditingController();
@@ -45,38 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  Future<void> _sendRequest(String message) async {
-    setState(() {
-      chatHistory.add('Message de l\'utilisateur : $message');
-    });
-
-    final response = await http.post(
-      Uri.parse('https://api.openai.com/v1/chat/completions'),
-      headers: {
-        'Content-Type': 'application/json',
-        "Authorization": "Bearer ${dotenv.env['OPENAI_API_KEY']}",
-      },
-      body: jsonEncode({
-        'messages': [
-          {'role': 'system', 'content': 'Traduis moi ça en anglais'},
-          {'role': 'user', 'content': '$message'}
-        ],
-        'model': 'gpt-3.5-turbo',
-        'max_tokens': 20,
-      }),
-    );
-
-    final Map<String, dynamic> data = jsonDecode(response.body);
-    final String chatGPTextGenerate = data['choices'][0]['message']['content'];
-
-    setState(() {
-      chatHistory.add('Message de l\'assistant : $chatGPTextGenerate');
-    });
-  }
-
-  final String textForCommunicate = "Communique avec l'assistant textuel !";
-  final String textInputDecorationHintText = "Entre ton message !";
-  final iconSend = Icons.send;
 
   Widget _buildCharacterList(int index) {
     return InkWell(
@@ -123,158 +87,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       IconButton(
                         icon: Icon(Icons.info_outline, size: 30.0),
-                        onPressed: () async {
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              title: RichText(
-                                text: TextSpan(
-                                  text: characters[index]['period'],
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 24,
-                                  ),
-                                  children: <TextSpan>[
-                                    TextSpan(
-                                      text: " - " + characters[index]['name'],
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              content: SingleChildScrollView(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Center(
-                                      child: Image.network(
-                                        characters[index]['image'],
-                                        height: 400,
-                                        alignment: Alignment.center,
-                                      ),
-                                    ),
-                                    Center(
-                                      child: Text(
-                                        characters[index]['shortDescription'],
-                                        style: TextStyle(
-                                          fontStyle: FontStyle.italic,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 25),
-                                    Divider(),
-                                    SizedBox(height: 25),
-                                    Container(
-                                      constraints: BoxConstraints(
-                                        maxWidth: 700.0,
-                                      ),
-                                      child: RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: "Description : ",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: characters[index]
-                                                  ['description'],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 25),
-                                    RichText(
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: "Naissance : ",
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
-                                            ),
-                                          ),
-                                          TextSpan(
-                                            text: characters[index]['lifeDate'],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(height: 10),
-                                    RichText(
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: "Programme scolaire : ",
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
-                                            ),
-                                          ),
-                                          TextSpan(
-                                            text: characters[index]
-                                                ['schoolProgram'],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(height: 10),
-                                    RichText(
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: "Popularité : ",
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
-                                            ),
-                                          ),
-                                          TextSpan(
-                                            text: characters[index]
-                                                ['popularity'],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    SizedBox(height: 10),
-                                    RichText(
-                                      text: TextSpan(
-                                        children: [
-                                          TextSpan(
-                                            text: "Note : ",
-                                            style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18,
-                                            ),
-                                          ),
-                                          TextSpan(
-                                            text: characters[index]['rate'],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: Text("Fermer"),
-                                ),
-                              ],
-                            ),
-                          );
+                        onPressed: () {
+                          showCharacterDialog(context, characters[index]);
                         },
                       ),
                       IconButton(
-                        icon: Icon(Icons.star_border, color: Colors.red, size: 30.0),
+                        icon: Icon(Icons.star_border,
+                            color: Colors.red, size: 30.0),
                         onPressed: () async {
                           showDialog(
                               context: context,
@@ -328,32 +147,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(textForCommunicate),
-            TextField(
-              controller: _controller,
-              decoration: InputDecoration(
-                hintText: textInputDecorationHintText,
-              ),
-            ),
-            TextField(
-                decoration: InputDecoration(
-                    hintText: "Search...",
-                    suffixIcon: InkWell(
-                      child: const Icon(Icons.search, color: Colors.black),
-                      onTap: () async {
-                        SharedPreferences preferences =
-                            await SharedPreferences.getInstance();
-                      },
-                    ))),
-            IconButton(
-              icon: Icon(iconSend),
-              onPressed: () {
-                _sendRequest(_controller.text);
-              },
-            ),
-            Text(
-              chatHistory.toString(),
-            ),
             Expanded(
               child: ListView.builder(
                 itemCount: characterCount,

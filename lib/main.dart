@@ -6,7 +6,6 @@ import 'package:uuid/uuid.dart';
 
 import 'screens/home_screen.dart';
 
-
 var uuid = Uuid();
 DateTime now = DateTime.now();
 
@@ -50,7 +49,8 @@ Future initSharedPreferences() async {
           "Toumaï est le nom donné à un fossile de primate découvert au Tchad en 2001.",
       "description":
           "Le fossile de Toumaï est considéré comme l'un des plus anciens ancêtres connus de l'homme. Il a été daté d'environ 7 millions d'années et présente des caractéristiques similaires à celles des premiers hominidés. Sa découverte a permis de mieux comprendre l'évolution de l'espèce humaine.",
-      "image": "https://medias.pourlascience.fr/api/v1/images/view/5a82ac5b8fe56f7c1c01b80e/wide_1300/image.jpg",
+      "image":
+          "https://medias.pourlascience.fr/api/v1/images/view/5a82ac5b8fe56f7c1c01b80e/wide_1300/image.jpg",
       "schoolProgram": "",
       "popularity": "1",
       "rate": "0",
@@ -73,13 +73,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'History.ai',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFFE83E80)),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'History.ai'),
     );
   }
 }
-
-
-
