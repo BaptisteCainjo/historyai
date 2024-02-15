@@ -12,13 +12,14 @@ class ConversationPage extends StatefulWidget {
   ConversationPage(this.character);
 
   @override
-  _ConversationPageState createState() => _ConversationPageState();
+  ConversationPageState createState() => ConversationPageState();
 }
 
-class _ConversationPageState extends State<ConversationPage> {
-  // TextEditingController _messageController = TextEditingController();
-  List<String> _messages = [];
-  TextEditingController _controller = TextEditingController();
+class ConversationPageState extends State<ConversationPage> {
+  bool _isCharacterResponding = false;
+
+  final List<String> _messages = [];
+  final TextEditingController _controller = TextEditingController();
   List<String> chatHistory = [];
 
   @override
@@ -37,22 +38,22 @@ class _ConversationPageState extends State<ConversationPage> {
 
   Widget _buildNavigationDiscussion() {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: normalPadding,
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: colorBlackBlock,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: colorBlackBlock.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: offset3,
           ),
         ],
       ),
       child: Row(
         children: [
           IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: Icon(iconArrowBack, color: colorWhitewithLittleOpacity),
             onPressed: () {
               Navigator.pop(context);
             },
@@ -65,10 +66,10 @@ class _ConversationPageState extends State<ConversationPage> {
               backgroundImage: NetworkImage(widget.character['image']),
             ),
           ),
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Text(
             widget.character['name'],
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: highFontSize, fontWeight: boldFontWeight, color: colorWhitewithLittleOpacity),
           ),
         ],
       ),
@@ -77,29 +78,27 @@ class _ConversationPageState extends State<ConversationPage> {
 
   Widget _buildInformations() {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: highPadding,
       child: Column(
         children: [
           Text(
             "Vous entrez en discussion avec ${widget.character['name']}.",
             style: TextStyle(
-              fontSize: 14,
-              fontStyle: FontStyle.italic,
-              color: colorGrey,
+              fontSize: littleFontSize,
+              fontStyle: italicFontStyle,
+              color: colorWhitewithLittleOpacity,
             ),
+            textAlign: centerTextAlign,
           ),
-          SizedBox(height: 8),
-          FractionallySizedBox(
-            widthFactor: 0.5,
-            child: Text(
-              "Cette conversation est générée par une intelligence artificielle, elle n'est pas réelle et des erreurs peuvent être présentes. Pour toute question ou soucis, veuillez contacter contact@baptistecainjo.fr.",
+          const SizedBox(height: 8),
+            Text(
+              "Cette conversation est générée par une intelligence artificielle, elle n'est pas réelle et peut contenir des erreurs. Une question ? Un souci ? Contactez contact@baptistecainjo.fr.",
               style: TextStyle(
-                fontSize: 14,
-                fontStyle: FontStyle.italic,
-                color: colorGrey,
+                fontSize: littleFontSize,
+                fontStyle: italicFontStyle,
+                color: colorWhitewithLittleOpacity,
               ),
-              textAlign: TextAlign.center,
-            ),
+              textAlign: centerTextAlign,
           ),
         ],
       ),
@@ -125,32 +124,29 @@ class _ConversationPageState extends State<ConversationPage> {
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Align(
-              alignment:
-                  index % 2 == 0 ? Alignment.centerRight : Alignment.centerLeft,
+              alignment: index % 2 == 0 ? Alignment.centerRight : Alignment.centerLeft,
               child: Row(
-                mainAxisAlignment: index % 2 == 0
-                    ? MainAxisAlignment.end
-                    : MainAxisAlignment.start,
+                mainAxisAlignment: index % 2 == 0 ? MainAxisAlignment.end : MainAxisAlignment.start,
                 children: [
                   CircleAvatar(
-                    backgroundImage: index % 2 == 0
-                        ? NetworkImage(
-                            pictureImage)
-                        : NetworkImage(widget.character['image']),
+                    backgroundImage:
+                        index % 2 == 0 ? const NetworkImage(pictureImage) : NetworkImage(widget.character['image']),
                   ),
-                  SizedBox(width: 8),
-                  Container(
-                    padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: index % 2 == 0
-                              ? [Color(0xFF405de6), Color(0xFF5851db)]
-                              : [Color(0xFF9E9E9E), Color(0xFF9E9E9E)]),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Text(
-                      combinedMessages[index],
-                      style: TextStyle(color: colorWhite),
+                  const SizedBox(width: 8),
+                  Flexible(
+                    child: Container(
+                      padding: normalPadding,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: index % 2 == 0 
+                                ? const [Color(0xFF405de6), Color(0xFF5851db)]
+                                : const [Color(0xFF9E9E9E), Color(0xFF9E9E9E)]),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        combinedMessages[index],
+                        style: const TextStyle(color: colorWhite),
+                      ),
                     ),
                   ),
                 ],
@@ -164,15 +160,15 @@ class _ConversationPageState extends State<ConversationPage> {
 
   Widget _buildInputField() {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: normalPadding,
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: colorBlackBlock,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
+            color: colorBlackBlock.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: offset3,
           ),
         ],
       ),
@@ -182,27 +178,32 @@ class _ConversationPageState extends State<ConversationPage> {
             child: TextField(
               controller: _controller,
               decoration: InputDecoration(
-                hintText: 'Type a message...',
+                hintText: 'Votre message...',
                 border: InputBorder.none,
+                hintStyle: TextStyle(color: colorWhite.withOpacity(0.75), fontSize: 15),
+              ),
+              style: const TextStyle(
+                color: colorWhite,
               ),
             ),
           ),
           IconButton(
-            icon: iconSend,
-            onPressed: () {
-              sendMessage();
-            },
+            icon: _isCharacterResponding ? const CircularProgressIndicator(valueColor: AlwaysStoppedAnimation<Color>(colorPrimary)) : iconSend,
+            color: colorWhite,
+            onPressed: _isCharacterResponding ? null : sendMessage,
           ),
         ],
       ),
     );
   }
 
+
   void sendMessage() {
     String message = _controller.text.trim();
     if (message.isNotEmpty) {
       setState(() {
         _messages.add(message);
+        _isCharacterResponding = true;
       });
       _controller.clear();
       _sendRequest(message);
@@ -218,19 +219,25 @@ class _ConversationPageState extends State<ConversationPage> {
       },
       body: jsonEncode({
         'messages': [
-          {'role': 'system', 'content': 'Traduis moi ça en anglais'},
-          {'role': 'user', 'content': '$message'}
+          {
+            'role': 'system',
+            "content":
+                "Tu es l'assistant d'une application de conversations historiques interactives qui vise à fournir une expérience d'apprentissage immersive en permettant aux utilisateurs d'engager des conversations réalistes avec des personnages historiques. Aujourd'hui, tu incarnes le personnage ${widget.character['name']}. Tu dois répondre aux questions de l'utilisateur en te basant sur tes connaissances historiques et ta personnalité. Tu peux aussi poser des questions à l'utilisateur pour mieux comprendre ses besoins. Au niveau du ton à employer, il est important de maintenir une approche respectueuse et authentique, reflétant le contexte historique et la personnalité du personnage incarné. Il convient d'utiliser un langage approprié à l'époque et au statut social du personnage, tout en restant accessible et compréhensible pour l'utilisateur contemporain. Voici une petite description du personnage ${widget.character['name']} : - Courte description : ${widget.character['shortDescription']}. - Description : ${widget.character['description']}. - Période : ${widget.character['period']}."
+          },
+          {'role': 'user', 'content': message}
         ],
         'model': 'gpt-3.5-turbo',
-        'max_tokens': 20,
       }),
     );
 
-    final Map<String, dynamic> data = jsonDecode(response.body);
+    // print(response.body);
+
+    final Map<String, dynamic> data = jsonDecode(utf8.decode(response.body.codeUnits));
     final String chatGPTextGenerate = data['choices'][0]['message']['content'];
 
     setState(() {
       chatHistory.add(chatGPTextGenerate);
+      _isCharacterResponding = false;
     });
   }
 }

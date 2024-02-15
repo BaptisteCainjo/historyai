@@ -5,7 +5,6 @@ import 'package:historyai/utils/functions.dart';
 import 'package:historyai/screens/discussion_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter/services.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -17,7 +16,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<Map<String, dynamic>> characters = [];
   int characterCount = 0;
-  TextEditingController _textFieldController = TextEditingController();
+  // TextEditingController _textFieldController = TextEditingController();
 
   @override
   void initState() {
@@ -36,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
         String periodA = characterMapA['period'];
         String periodB = characterMapB['period'];
 
-        List<String> periodOrder = ['Préhistoire', 'Antiquité', 'Moyen Age', 'Époque contemporaine'];
+        List<String> periodOrder = [period1, period2, period3, period4];
 
         int indexA = periodOrder.indexOf(periodA);
         int indexB = periodOrder.indexOf(periodB);
@@ -53,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildNavigationBar(BuildContext context, String period) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: normalPadding,
       decoration: BoxDecoration(
         color: colorPrimary,
         boxShadow: [
@@ -61,25 +60,25 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.grey.withOpacity(0.5),
             spreadRadius: 2,
             blurRadius: 5,
-            offset: Offset(0, 3),
+            offset: offset3,
           ),
         ],
       ),
       child: Row(
         children: [
           IconButton(
-            icon: Icon(Icons.arrow_back, color: colorWhite),
+            icon: const Icon(iconArrowBack, color: colorWhite),
             onPressed: () {
               Navigator.pop(context);
             },
           ),
-          Expanded(
+          const Expanded(
             child: Center(
               child: Text(
                 "History AI",
                 style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                  fontSize: titleFontSize,
+                  fontWeight: semiBoldFontWeight,
                   color: colorWhite,
                 ),
               ),
@@ -101,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       },
       child: Container(
-        margin: const EdgeInsets.all(8.0),
+        margin: normalMargin,
         padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
         decoration: BoxDecoration(
           color: colorPrimary,
@@ -111,50 +110,48 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.grey.withOpacity(0.3),
               spreadRadius: 2,
               blurRadius: 8,
-              offset: Offset(0, 4),
+              offset: offset4,
             ),
           ],
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Icon(
+            const Icon(
               Icons.calendar_today,
               color: colorWhite,
               size: 24,
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Expanded(
               child: Text(
                 period,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                style: const TextStyle(
+                  fontSize: titleFontSize,
+                  fontWeight: semiBoldFontWeight,
                   color: colorWhite,
                 ),
               ),
             ),
-            SizedBox(width: 8),
-            Container(
-              child: Row(
-                children: [
-                  Text(
-                    "Voir tout",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: colorWhite,
-                    ),
-                  ),
-                  SizedBox(width: 4),
-                  Icon(
-                    Icons.arrow_forward,
+            const SizedBox(width: 8),
+            const Row(
+              children: [
+                Text(
+                  "Voir tout",
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: semiBoldFontWeight,
                     color: colorWhite,
-                    size: 24,
                   ),
-                ],
-              ),
-            )
+                ),
+                SizedBox(width: 4),
+                Icon(
+                  Icons.arrow_forward,
+                  color: colorWhite,
+                  size: 24,
+                ),
+              ],
+            ),
           ],
         ),
       ),
@@ -172,8 +169,9 @@ class _MyHomePageState extends State<MyHomePage> {
         );
       },
       child: Card(
+          color: colorBlackBlock,
           child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: normalPadding,
               child: Row(
                 children: [
                   Image.network(
@@ -181,33 +179,31 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 100,
                     height: 100,
                   ),
-                  SizedBox(width: 16),
+                  const SizedBox(width: 16),
                   Expanded(
-                      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      child: Column(crossAxisAlignment: startCrossAxisAlignment, children: [
                     Text(
                       characters[index]['name'],
-                      style: TextStyle(color: colorPrimary, fontWeight: FontWeight.bold, fontSize: 20),
+                      style:
+                          const TextStyle(color: colorWhite, fontWeight: semiBoldFontWeight, fontSize: titleFontSize),
                     ),
                     Text(
                       characters[index]['shortDescription'],
-                      style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        fontSize: 16,
-                      ),
+                      style: const TextStyle(fontStyle: italicFontStyle, fontSize: littleFontSize, color: colorWhite),
                     ),
                   ])),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       IconButton(
-                        icon: Icon(Icons.info_outline, size: 30.0),
+                        icon: const Icon(iconInfoOutline, size: 30.0),
                         color: colorPrimary,
                         onPressed: () {
                           showCharacterDialog(context, characters[index]);
                         },
                       ),
                       // IconButton(
-                      //   icon: Icon(Icons.star_border, color: Colors.red, size: 30.0),
+                      //   icon: Icon(iconStarborder, color: Colors.red, size: 30.0),
                       //   onPressed: () async {
                       //     showDialog(
                       //         context: context,
@@ -248,33 +244,40 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _buildNavigationBar(context, ""),
-            Expanded(
-              child: ListView.builder(
-                itemCount: characterCount,
-                itemBuilder: (context, index) {
-                  Map<String, dynamic> character = characters[index];
-                  String period = character['period'];
+    return MaterialApp(
+      theme: ThemeData(
+        fontFamily: poppinsFontFamily,
+        primaryColor: colorBlackBlock,
+        scaffoldBackgroundColor: colorBlackBkg,
+      ),
+      home: Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: centerMainAxisAlignment,
+            children: <Widget>[
+              _buildNavigationBar(context, ""),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: characterCount,
+                  itemBuilder: (context, index) {
+                    Map<String, dynamic> character = characters[index];
+                    String period = character['period'];
 
-                  if (index == 0 || characters[index - 1]['period'] != period) {
-                    return Column(
-                      children: [
-                        _buildPeriodTitle(period),
-                        _buildCharacterList(index),
-                      ],
-                    );
-                  } else {
-                    return _buildCharacterList(index);
-                  }
-                },
+                    if (index == 0 || characters[index - 1]['period'] != period) {
+                      return Column(
+                        children: [
+                          _buildPeriodTitle(period),
+                          _buildCharacterList(index),
+                        ],
+                      );
+                    } else {
+                      return _buildCharacterList(index);
+                    }
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -19,19 +19,19 @@ class _PreHomePageState extends State<PreHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title, style: TextStyle(color: colorWhite)),
+        title: Text(widget.title, style: const TextStyle(color: colorWhite)),
         backgroundColor: colorPrimary,
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: centerMainAxisAlignment,
           children: <Widget>[
-            _buildButton('Version Lite', colorPrimary, databaseHome, "10 secondes"),
-            SizedBox(height: 20),
-            _buildButton('Version Complète', colorGold, databaseAllCharacters, "1 minute"),
-            SizedBox(height: 20),
+            _buildButton('Version Complète', colorPrimary, databaseAllCharacters, databaseAllCharacters),
+            const SizedBox(height: 20),
+            _buildButton('Version Lite', colorBlackBlock, databaseHome, databaseHome),
+            const SizedBox(height: 20),
             isLoading
-                ? CircularProgressIndicator(
+                ? const CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(colorPrimary),
                   )
                 : Container(),
@@ -41,31 +41,35 @@ class _PreHomePageState extends State<PreHomePage> {
     );
   }
 
-  Widget _buildButton(String text, Color color, List<String> database, String time) {
+  Widget _buildButton(String text, Color color, List<String> database, List characterCount) {
+    int characterCount = database.length;
     return ElevatedButton(
       onPressed: () async {
         await _handleButtonPress(database);
       },
-      child: Text.rich(
-        TextSpan(
-          text: text,
-          style: TextStyle(color: colorWhite),
-          children: [
-            TextSpan(
-              text: ' (Temps de chargement : <' + time + ')',
-              style: TextStyle(fontSize: 12),
-            ),
-          ],
-        ),
-      ),
       style: ElevatedButton.styleFrom(
-        primary: color,
-        onPrimary: colorWhite,
-        padding: EdgeInsets.symmetric(vertical: 16, horizontal: 32),
+        backgroundColor: color,
+        foregroundColor: colorWhite,
+        padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 32),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
-        textStyle: TextStyle(fontSize: 18),
+        textStyle: const TextStyle(fontSize: titleFontSize, fontFamily: poppinsFontFamily),
+      ),
+      child: Column(
+        children: [
+          Text(
+            text,
+            style: const TextStyle(color: colorWhite, fontFamily: poppinsFontFamily),
+          ),
+          if (characterCount != 0)
+            Text.rich(
+              TextSpan(
+                text: '($characterCount personnages disponibles)',
+                style: const TextStyle(fontSize: littleFontSize, fontFamily: poppinsFontFamily),
+              ),
+            ),
+        ],
       ),
     );
   }

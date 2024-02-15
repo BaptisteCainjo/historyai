@@ -4,10 +4,7 @@ import 'package:historyai/screens/prehome_screen.dart';
 import 'package:historyai/utils/constants.dart';
 import 'package:uuid/uuid.dart';
 
-import 'screens/home_screen.dart';
-import 'utils/database.dart';
-
-var uuid = Uuid();
+const uuid = Uuid();
 DateTime now = DateTime.now();
 
 void main() async {
@@ -22,6 +19,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: poppinsFontFamily,
+        primaryColor: colorBlackBlock,
+        scaffoldBackgroundColor: colorBlackBkg,
+      ),
       home: const PreHomePage(title: 'History.ai'),
     );
   }
