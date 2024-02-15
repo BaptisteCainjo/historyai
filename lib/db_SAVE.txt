@@ -6,6 +6,7 @@
 {"name": "Toumaï", "periode": "Préhistoire"} - Notation : 1
 {"name": "Homo habilis", "periode": "Préhistoire"} - Notation : 1
 {"name": "Ötzi", "periode": "Préhistoire"} - Notation : 1
+
 {"name": "Alexandre le Grand", "periode": "Antiquité"} - Notation : 5
 {"name": "Jules César", "periode": "Antiquité"} - Notation : 5
 {"name": "Cléopâtre VII", "periode": "Antiquité"} - Notation : 4
@@ -55,6 +56,7 @@
 {"name": "Ali ibn Abi Talib", "periode": "Moyen Âge"} - Notation : 1
 {"name": "Philippe le Bel", "periode": "Moyen Âge"} - Notation : 1
 {"name": "Godefroy de Bouillon", "periode": "Moyen Âge"} - Notation : 1
+
 {"name": "Napoléon Bonaparte", "periode": "Époque Période moderne"} - Notation : 5
 {"name": "Queen Victoria", "periode": "Époque Période moderne"} - Notation : 4
 {"name": "Abraham Lincoln", "periode": "Époque Période moderne"} - Notation : 4

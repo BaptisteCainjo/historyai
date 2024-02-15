@@ -85,18 +85,18 @@ class _ConversationPageState extends State<ConversationPage> {
             style: TextStyle(
               fontSize: 14,
               fontStyle: FontStyle.italic,
-              color: Colors.grey[600],
+              color: colorGrey,
             ),
           ),
           SizedBox(height: 8),
           FractionallySizedBox(
             widthFactor: 0.5,
             child: Text(
-              "Cette conversation est générée par une intelligence artificielle, elle n'est pas réelle et des erreurs peuvent être présentes. Pour toute question ou soucis, veuillez contacter contact.baptistecainjo.fr.",
+              "Cette conversation est générée par une intelligence artificielle, elle n'est pas réelle et des erreurs peuvent être présentes. Pour toute question ou soucis, veuillez contacter contact@baptistecainjo.fr.",
               style: TextStyle(
                 fontSize: 14,
                 fontStyle: FontStyle.italic,
-                color: Colors.grey[600],
+                color: colorGrey,
               ),
               textAlign: TextAlign.center,
             ),
@@ -135,7 +135,7 @@ class _ConversationPageState extends State<ConversationPage> {
                   CircleAvatar(
                     backgroundImage: index % 2 == 0
                         ? NetworkImage(
-                            'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
+                            pictureImage)
                         : NetworkImage(widget.character['image']),
                   ),
                   SizedBox(width: 8),
@@ -150,7 +150,7 @@ class _ConversationPageState extends State<ConversationPage> {
                     ),
                     child: Text(
                       combinedMessages[index],
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: colorWhite),
                     ),
                   ),
                 ],

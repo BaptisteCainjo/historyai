@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:historyai/utils/constants.dart';
 
 void showCharacterDialog(BuildContext context, Map<String, dynamic> character) {
   showDialog(
@@ -69,39 +70,39 @@ void showCharacterDialog(BuildContext context, Map<String, dynamic> character) {
               ),
             ),
             SizedBox(height: 25),
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: "Naissance : ",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  TextSpan(
-                    text: character['lifeDate'],
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 10),
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: "Programme scolaire : ",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  TextSpan(
-                    text: character['schoolProgram'],
-                  ),
-                ],
-              ),
-            ),
+            // RichText(
+            //   text: TextSpan(
+            //     children: [
+            //       TextSpan(
+            //         text: "Naissance : ",
+            //         style: TextStyle(
+            //           fontWeight: FontWeight.bold,
+            //           fontSize: 18,
+            //         ),
+            //       ),
+            //       TextSpan(
+            //         text: character['lifeDate'],
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // SizedBox(height: 10),
+            // RichText(
+            //   text: TextSpan(
+            //     children: [
+            //       TextSpan(
+            //         text: "Programme scolaire : ",
+            //         style: TextStyle(
+            //           fontWeight: FontWeight.bold,
+            //           fontSize: 18,
+            //         ),
+            //       ),
+            //       TextSpan(
+            //         text: character['schoolProgram'],
+            //       ),
+            //     ],
+            //   ),
+            // ),
             SizedBox(height: 10),
             RichText(
               text: TextSpan(
@@ -119,23 +120,23 @@ void showCharacterDialog(BuildContext context, Map<String, dynamic> character) {
                 ],
               ),
             ),
-            SizedBox(height: 10),
-            RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: "Note : ",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  TextSpan(
-                    text: character['rate'],
-                  ),
-                ],
-              ),
-            ),
+            // SizedBox(height: 10),
+            // RichText(
+            //   text: TextSpan(
+            //     children: [
+            //       TextSpan(
+            //         text: "Note : ",
+            //         style: TextStyle(
+            //           fontWeight: FontWeight.bold,
+            //           fontSize: 18,
+            //         ),
+            //       ),
+            //       TextSpan(
+            //         text: character['rate'],
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),
@@ -149,4 +150,15 @@ void showCharacterDialog(BuildContext context, Map<String, dynamic> character) {
       ],
     ),
   );
+}
+
+
+
+String? getShortDescription(Map<String, dynamic>? data) {
+  if (data?['description'] != null) {
+    return data?['description'];
+  } else {
+    List<String> sentences = data?['detailedDescription']['articleBody'].split('.');
+    return sentences.isNotEmpty ? sentences[0].trim() + '.' : null;
+  }
 }
